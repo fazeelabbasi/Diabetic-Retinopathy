@@ -12,12 +12,12 @@ from random import shuffle
 Testing_dict = {}  # id: breed
 naming_dict = {}  # id: breed
 IMG_SIZE = 300
-DIR = "D:\\Health Project\\Train Images_Unzipped"
+DIR = "D:\\Health Project\\80Gig\\Train\\train"
 TEST_DIR = "D:\\Health Project\\80Gig\\Test\\test"
 
 
 
-f = open("D:\\Health Project\\train.csv", "r")
+f = open("D:\\Health Project\\80Gig\\trainLabels.csv", "r")
 fileContents = f.read()
 fileContents = fileContents.split('\n')
 
@@ -116,13 +116,13 @@ model.add(Dropout(0.2))
 model.add(Dense(1, activation = 'sigmoid'))
 
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics = ['accuracy'])
-model.fit(trainImages, trainLabels, batch_size = 128, epochs = 15, verbose = 1)
-
+model.fit(trainImages, trainLabels, batch_size = 128, epochs = 5, verbose = 1)
+model.save('diabetic_retinopathy_80gig')
+model.save_weights('diabetic_retinopathy_80gig_weights')
 
 
 loss, acc = model.evaluate(testImages, testLabels, verbose = 0)
 print(acc * 100)
-
 
 # https://github.com/CShorten/KaggleDogBreedChallenge/blob/master/DogBreed_BinaryClassification.ipynb
 
