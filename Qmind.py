@@ -116,9 +116,9 @@ model.add(Dropout(0.2))
 model.add(Dense(1, activation = 'sigmoid'))
 
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics = ['accuracy'])
-model.fit(trainImages, trainLabels, batch_size = 128, epochs = 5, verbose = 1)
-model.save('diabetic_retinopathy_80gig')
-model.save_weights('diabetic_retinopathy_80gig_weights')
+model.fit(trainImages, trainLabels, batch_size = 64, epochs = 50, verbose = 1)
+model.save("D:\\Health Project\\diabetic_retinopathy_80gig")
+model.save_weights("D:\\Health Project\\diabetic_retinopathy_80gig_weights")
 
 
 loss, acc = model.evaluate(testImages, testLabels, verbose = 0)
