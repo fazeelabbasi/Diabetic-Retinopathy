@@ -17,23 +17,23 @@ TEST_DIR = "D:\\Health Project\\80Gig\\Test\\test"
 
 
 
-f = open("D:\\Health Project\\80Gig\\trainLabels.csv", "r")
+f = open("D:\\Health Project\\80Gig\\trainLabels.csv", "r") # big dataset
 fileContents = f.read()
 fileContents = fileContents.split('\n')
 
 
-ft = open("D:\\Health Project\\retinopathy_solution.csv", "r")
+ft = open("D:\\Health Project\\retinopathy_solution.csv", "r") #small dataset
 fileContentst = ft.read()
 fileContentst = fileContentst.split('\n')
 
 
 for i in range(1, len(fileContents) - 1):
     fileContents[i] = fileContents[i].split(',')
-    naming_dict[fileContents[i][0]] = fileContents[i][1]
+    naming_dict[fileContents[i][0]] = fileContents[i][1]  #read in big labels
     
 for i in range(1, len(fileContentst) - 1):
     fileContentst[i] = fileContentst[i].split(',')
-    Testing_dict[fileContentst[i][0]] = fileContentst[i][1]
+    Testing_dict[fileContentst[i][0]] = fileContentst[i][1] #read in small labels
 
 
 
